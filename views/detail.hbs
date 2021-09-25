@@ -1,0 +1,24 @@
+<div class="container cards-container">
+  <div class="card">
+    <div class="card__upper">
+      <img src="{{restaurant.image}}" alt="" class="card__upper-img">
+      <div class="card__upper-name">
+        <h3 class="name">{{restaurant.name}}</h3>
+        <h3 class="name_en">{{restaurant.name_en}}</h3>
+        <h3 class="phone">{{restaurant.phone}}</h3>
+        <h3 class="category">{{restaurant.category}}</h3>
+        <h3 class="location">{{restaurant.location}}</h3>
+        <h3 class="rating">{{restaurant.rating}}</h3>
+        <h3 class="google_map">{{restaurant.google_map}}</h3>
+        <p class="description">{{restaurant.description}}</p>
+      </div>
+    </div>
+    <div class="card__footer">
+      <a href="/" class="back">Back</a>
+      <a href="/restaurants/{{restaurant._id}}/edit" class="edit">Edit</a>
+      <form action="/restaurants/{{restaurant._id}}/delete" method="post">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>

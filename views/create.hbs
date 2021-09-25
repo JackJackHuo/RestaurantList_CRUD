@@ -1,0 +1,59 @@
+<div class="form__container">
+  <form action="/restaurants" method="post">
+    <div class="form__left">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="name_en">Name(English)</label>
+        <input type="text" name="name_en" id="name_en">
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <div class="input-wrapper">
+          <input list="category" name="category" class="form-control">
+        </div>
+        <datalist id="category">
+          <option value="" disabled selected>請選擇</option>
+          <option>中東料理</option>
+          <option>日本料理</option>
+          <option>義式餐廳</option>
+          <option>美式餐廳</option>
+          <option>酒吧</option>
+          <option>咖啡</option>
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="map">Google Map</label>
+        <input type="text" name="map" id="map" class="form-control" placeholder="http://">
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input type="number" name="rating" id="rating" class="form-control" min="1" max="5" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" class="form-control" cols="30" rows="5"
+          placeholder="Type some comment here ..."></textarea>
+      </div>
+    </div>
+    <div class="form__right">
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" name="image" id="image" class="form-control" 
+        placeholder="http://">
+      </div>
+      <img class="createImage mt-4" src="" alt="">
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

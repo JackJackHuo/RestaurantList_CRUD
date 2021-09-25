@@ -1,0 +1,33 @@
+<main>
+  <section class="search-panel">
+    <form action="" method="get">
+      <div class="form-group">
+        <div class="search-wrapper my-4">
+          <input type="text" name="keyword" id="search-input" placeholder="keyword for searching...">
+          <button type="submit" class="btn" >Search</button>
+        </div>
+      </div>
+    </form>
+  </section>
+  <section class="list-panel">
+    <div class="container cards-container">
+      {{#each restaurants}}
+      <div class="card">
+        <div class="card__upper">
+          <img src="{{this.image}}" alt="" class="card__upper-img">
+          <div class="card__upper-name">
+            <h3 class="name">{{this.name}}</h3>
+          </div>
+        </div>
+        <div class="card__footer">
+          <a href="/restaurants/{{this._id}}" class="detail">Detail</a>
+          <a href="/restaurants/{{this._id}}/edit" class="edit">Edit</a>
+          <form action="/restaurants/{{this._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+</main>
