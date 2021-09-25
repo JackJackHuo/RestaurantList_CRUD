@@ -12,6 +12,7 @@ const main = 'main'
 const detail = 'detail'
 const create = 'create'
 const edit = 'edit'
+const search = 'search'
 
 
 // create express server
@@ -73,7 +74,7 @@ app.get('/restaurants/:id' , (req ,res) => {
 })
 
 // edit page
-app.get('/restaurants/:id/edit' , (req ,res) => {
+app.get('/restaurants/:id/edit' , (req , res) => {
   const id = req.params.id
   return Restaurants.findById(id)
                     .lean()
@@ -83,6 +84,18 @@ app.get('/restaurants/:id/edit' , (req ,res) => {
                     })
                     .catch(error => console.log(error))
   
+})
+
+// search
+app.get('/search' , (req , res) => {
+  const keyword = req.query.keyword.toLocaleLowerCase()
+  return Restaurants.find()
+                    .lean()
+                    .then(restaurants => {
+                      console.log(restaurants)
+                      const array = restaurants.filter( restaurant => restaurant.name.trim().toLocaleLowerCase().includes(keyword))
+                      res.render('search', { array, keyword, stylesheet: search})
+                    })
 })
 
 // POST

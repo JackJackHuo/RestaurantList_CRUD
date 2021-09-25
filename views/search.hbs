@@ -3,15 +3,15 @@
     <form action="/search" method="get">
       <div class="form-group">
         <div class="search-wrapper my-4">
-          <input type="text" name="keyword" id="search-input" placeholder="keyword for searching...">
-          <button type="submit" class="btn" >Search</button>
+          <input type="text" name="keyword" id="search-input" placeholder="keyword for searching..." value="{{keyword}}">
+          <button type="submit" class="btn">Search</button>
         </div>
       </div>
     </form>
   </section>
   <section class="list-panel">
     <div class="container cards-container">
-      {{#each restaurants}}
+      {{#each array}}
       <div class="card">
         <div class="card__upper">
           <img src="{{this.image}}" alt="" class="card__upper-img">
