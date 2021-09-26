@@ -16,7 +16,7 @@
     <div class="card__footer">
       <a href="/" class="back">Back</a>
       <a href="/restaurants/{{restaurant._id}}/edit" class="edit">Edit</a>
-      <form action="/restaurants/{{restaurant._id}}/delete" method="post">
+      <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="post">
         <button type="submit">Delete</button>
       </form>
     </div>
