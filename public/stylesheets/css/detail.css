@@ -582,15 +582,6 @@ input:invalid {
   margin-bottom: 2rem;
 }
 
-header {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
-}
-
-.container, header .nav {
-  width: 80%;
-  margin: 0 auto;
-}
-
 html {
   font-size: 16px;
   height: 100%;
@@ -685,6 +676,15 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+header {
+  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
+}
+
+.container, header .nav {
+  width: 80%;
+  margin: 0 auto;
 }
 
 header {

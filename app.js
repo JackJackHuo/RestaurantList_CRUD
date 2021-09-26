@@ -101,50 +101,54 @@ app.get('/search' , (req , res) => {
 // POST
 app.post('/restaurants' , (req , res) => {
   const newRestaurant = req.body
-  return Restaurants.create({ 
-                      name: newRestaurant.name , 
-                      name_en: newRestaurant.name_en,
-                      category: newRestaurant.category,
-                      image: newRestaurant.image,
-                      location: newRestaurant.location,
-                      phone: newRestaurant.phone,
-                      image: newRestaurant.image,
-                      google_map: newRestaurant.google_map,
-                      rating: +newRestaurant.rating,
-                      description: newRestaurant.description
-                    })
+  const defaultImage = 'https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5630/04.jpg'
+  newRestaurant.image = newRestaurant.image || defaultImage
+  return Restaurants.create( newRestaurant )
                     .then(res.redirect('/'))
                     .catch(error => console.log(error))
-
+  // return Restaurants.create({ 
+  //                     name: newRestaurant.name , 
+  //                     name_en: newRestaurant.name_en,
+  //                     category: newRestaurant.category,
+  //                     image: newRestaurant.image || defaultImage,
+  //                     location: newRestaurant.location,
+  //                     phone: newRestaurant.phone,
+  //                     google_map: newRestaurant.google_map,
+  //                     rating: +newRestaurant.rating,
+  //                     description: newRestaurant.description
+  //                   })
+  //                   .then(res.redirect('/'))
+  //                   .catch(error => console.log(error))
 })
 
 // edit
 app.post('/restaurants/:id/edit' , (req , res) => {
   const id = req.params.id
   const editRestaurant = req.body
-  return Restaurants.findById(id)
-                    .then(restaurant => {
-                      restaurant.name = editRestaurant.name,
-                      restaurant.name_en = editRestaurant.name_en,
-                      restaurant.category = editRestaurant.category,
-                      restaurant.image = editRestaurant.image,
-                      restaurant.location = editRestaurant.location,
-                      restaurant.phone = editRestaurant.phone,
-                      restaurant.image = editRestaurant.image,
-                      restaurant.google_map = editRestaurant.google_map,
-                      restaurant.rating = +editRestaurant.rating,
-                      restaurant.description = editRestaurant.description
-                      return restaurant.save()
-                    })
+  return Restaurants.findByIdAndUpdate(id, editRestaurant)
                     .then(() => res.redirect('/'))
                     .catch(error => console.log(error))
+  // return Restaurants.findById(id)
+  //                   .then(restaurant => {
+  //                     restaurant.name = editRestaurant.name,
+  //                     restaurant.name_en = editRestaurant.name_en,
+  //                     restaurant.category = editRestaurant.category,
+  //                     restaurant.image = editRestaurant.image,
+  //                     restaurant.location = editRestaurant.location,
+  //                     restaurant.phone = editRestaurant.phone,
+  //                     restaurant.image = editRestaurant.image,
+  //                     restaurant.google_map = editRestaurant.google_map,
+  //                     restaurant.rating = +editRestaurant.rating,
+  //                     restaurant.description = editRestaurant.description
+  //                     return restaurant.save()
+  //                   })
+  //                   .then(() => res.redirect('/'))
+  //                   .catch(error => console.log(error))
 })
 // delete
 app.post('/restaurants/:id/delete' , (req , res) => {
   const id = req.params.id
-  return Restaurants.findById(id)
-                    .then(restaurant => restaurant.remove())
-                    .then(() => res.redirect('/'))
+  return Restaurants.findByIdAndRemove(id, () => res.redirect('/'))
                     .catch(error => console.log(error))
 })
 app.listen( 3000 , () => {

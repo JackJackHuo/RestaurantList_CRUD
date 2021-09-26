@@ -678,15 +678,6 @@ body {
   cursor: pointer;
 }
 
-header {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
-}
-
-.form__container, main, header .nav {
-  width: 80%;
-  margin: 0 auto;
-}
-
 .form__container form textarea, .form__container form .form-group input {
   border: 1px solid #a7aaaf;
   border-radius: 5px;
@@ -695,6 +686,15 @@ header {
 }
 .form__container form textarea:hover, .form__container form .form-group input:hover, .form__container form textarea:active, .form__container form .form-group input:active {
   border-color: #4a4a4a;
+}
+
+header {
+  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
+}
+
+.form__container, main, header .nav {
+  width: 80%;
+  margin: 0 auto;
 }
 
 header {

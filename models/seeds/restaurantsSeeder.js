@@ -19,21 +19,22 @@ db.on('error', () => {
 })
 db.once('open', () => {
   console.log('mongodb connected!')
-  defaultRestaurant.results.forEach( restaurant => {
-    Restaurants.create(
-      {
-        name: restaurant.name,
-        name_en: restaurant.name_en,
-        category: restaurant.category,
-        image: restaurant.image,
-        location: restaurant.location,
-        phone: restaurant.phone,
-        google_map: restaurant.google_map,
-        rating: restaurant.rating,
-        description: restaurant.description
-      }
-    )
-  }) 
+  Restaurants.insertMany(defaultRestaurant.results)
+  // defaultRestaurant.results.forEach( restaurant => {
+  //   Restaurants.create(
+  //     {
+  //       name: restaurant.name,
+  //       name_en: restaurant.name_en,
+  //       category: restaurant.category,
+  //       image: restaurant.image,
+  //       location: restaurant.location,
+  //       phone: restaurant.phone,
+  //       google_map: restaurant.google_map,
+  //       rating: restaurant.rating,
+  //       description: restaurant.description
+  //     }
+  //   )
+  // }) 
 })
 
 
