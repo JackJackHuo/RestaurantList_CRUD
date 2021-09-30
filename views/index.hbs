@@ -9,6 +9,20 @@
       </div>
     </form>
   </section>
+  <section class="filter">
+    <form action="/" method="get">
+      <div class="form-group">
+        <div class="search-wrapper my-4">
+          <select name="sort" id="sort">
+            <option selected disabled>Sorting</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+          <button type="submit" class="btn">filter</button>
+        </div>
+      </div>
+    </form>
+  </section>
   <section class="list-panel">
     <div class="container cards-container">
       {{#each restaurants}}
