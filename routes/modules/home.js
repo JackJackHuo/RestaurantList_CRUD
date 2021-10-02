@@ -28,7 +28,6 @@ router.post('/filter', (req, res) => {
     rating_asc: { rating: 'asc'},
     rating_desc: { rating: 'desc'}
   }
-  console.log(sortRule[sort])
   // rating => grater than and equal to filterRating(selected by client) default rating = 0; 
   // category => filterCategory(selected by client); '.' means any string
   return Restaurants.find({$and: [{ rating: { $gte: filterRating || 0}}, {category: { $regex: filterCategory || '.'} }]})
