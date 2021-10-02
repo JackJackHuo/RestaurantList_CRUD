@@ -689,6 +689,7 @@ main, header .nav {
 
 header {
   position: fixed;
+  z-index: 999;
   background-color: #4a4a4a;
   height: 60px;
   width: 100%;
@@ -744,6 +745,13 @@ main {
 }
 .list-panel .card__upper {
   height: 70%;
+}
+.list-panel .card__upper .upper__info .upper__info--name {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .list-panel .card__footer {
   flex: 1;

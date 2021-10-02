@@ -3,7 +3,7 @@
     <form action="/search" method="get">
       <div class="form-group">
         <div class="search-wrapper my-4">
-          <input type="text" name="keyword" id="search-input" placeholder="keyword for searching..." value="{{keyword}}">
+          <input type="text" name="keyword" id="search-input" placeholder=" keyword for searching..." value="{{keyword}}">
           <button type="submit" class="btn">Search</button>
         </div>
       </div>
@@ -11,23 +11,32 @@
   </section>
   <section class="list-panel">
     <div class="container cards-container">
-      {{#each array}}
-      <div class="card">
-        <div class="card__upper">
-          <img src="{{this.image}}" alt="" class="card__upper-img">
-          <div class="card__upper-name">
-            <h3 class="name">{{this.name}}</h3>
+      {{#if restaurants}}
+        {{#each restaurants}}
+        <div class="card">
+          <div class="card__upper">
+            <img src="{{this.image}}" alt="" class="card__upper-img">
+            <div class="card__upper-name">
+              <h3 class="name">{{this.name}}</h3>
+            </div>
+          </div>
+          <div class="card__footer">
+            <a href="/restaurants/{{this._id}}" class="detail">Detail</a>
+            <a href="/restaurants/{{this._id}}/edit" class="edit">Edit</a>
+            <form action="/restaurants/{{this._id}}/delete" method="post">
+              <button type="submit">Delete</button>
+            </form>
           </div>
         </div>
-        <div class="card__footer">
-          <a href="/restaurants/{{this._id}}" class="detail">Detail</a>
-          <a href="/restaurants/{{this._id}}/edit" class="edit">Edit</a>
-          <form action="/restaurants/{{this._id}}/delete" method="post">
-            <button type="submit">Delete</button>
-          </form>
+        {{/each}}
+      {{else}}
+        <div class="container-fluid">
+          <div id="errorMessage">找不到關於"{{keyword}}"的餐廳</div>
+          <div class="d-flex justify-content-center mt-5" id="error">
+            <img src="/image/nojobsfound.png" alt="">
+          </div>
         </div>
-      </div>
-      {{/each}}
+      {{/if}}
     </div>
   </section>
 </main>

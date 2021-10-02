@@ -10,15 +10,37 @@
     </form>
   </section>
   <section class="filter">
-    <form action="/" method="get">
+    <form action="/filter" method="post" id="filter">
       <div class="form-group">
         <div class="search-wrapper my-4">
+          <label for="sort">Sort</label>
           <select name="sort" id="sort">
             <option selected disabled>Sorting</option>
-            <option value="asc">A-Z</option>
-            <option value="desc">Z-A</option>
+            <option value="name_asc">Name Ascending</option>
+            <option value="name_desc">Name Descending</option>
+            <option value="rating_asc">Rating Ascending</option>
+            <option value="rating_desc">Rating Descending</option>
           </select>
-          <button type="submit" class="btn">filter</button>
+          <label for="filterRating">Filter</label>
+          <select name="filterRating" id="filterRating">
+            <option selected disabled>Rating</option>
+            <option value=1>1+</option>
+            <option value=2>2+</option>
+            <option value=3>3+</option>
+            <option value=4>4+</option>
+            <option value=5>5</option>
+          </select>
+          <select name="filterCategory" id="filterCategory" onchange="filter.submit()">
+            <option selected disabled>Category</option>
+            <option value="">全部</option>
+            <option value="中東料理">中東料理</option>
+            <option value="日本料理">日本料理</option>
+            <option value="義式餐廳">義式餐廳</option>
+            <option value="美式">美式</option>
+            <option value="酒吧">酒吧</option>
+            <option value="咖啡">咖啡</option>
+          </select>
+          <button type="submit">Enter</button>
         </div>
       </div>
     </form>
@@ -26,11 +48,16 @@
   <section class="list-panel">
     <div class="container cards-container">
       {{#each restaurants}}
+      
       <div class="card">
         <div class="card__upper">
-          <img src="{{this.image}}" alt="" class="card__upper-img">
-          <div class="card__upper-name">
-            <h3 class="name">{{this.name}}</h3>
+          <a href="/restaurants/{{this._id}}">
+            <img src="{{this.image}}" alt="" class="card__upper-img">
+          </a>
+          <div class="upper__info">
+            <h3 class="upper__info--name">{{this.name}}</h3>
+            <h5 class="upper__info--rating">{{this.rating}}</h5>
+            <span class="upper__info--category">{{this.category}}</span>
           </div>
         </div>
         <div class="card__footer">

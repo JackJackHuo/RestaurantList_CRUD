@@ -4,6 +4,7 @@
 // header
 header{
   position: fixed;
+  z-index: 999;
   @extend %standard-boxshadow;
   background-color: $dark-gray;
   height: 60px;
@@ -67,6 +68,15 @@ main{
   }
   .card__upper{
     height: 70%;
+    .upper__info{
+      .upper__info--name{
+      width: 100%;
+      display: -webkit-box; 
+      -webkit-box-orient: vertical; 
+      -webkit-line-clamp: 1; 
+      overflow: hidden;
+      }  
+    }
   }
   .card__footer{
     flex:1;

@@ -32,16 +32,5 @@ const restaurantsSchema = new Schema({
     type: String,
   }
 })
-// connect to mongodb
-mongoose.connect('mongodb://localhost/restaurants-list')
-// aquire connrction state
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
 
 module.exports = mongoose.model('Restaurants', restaurantsSchema)

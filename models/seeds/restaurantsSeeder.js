@@ -4,7 +4,7 @@ const db = require('../../config/mongoose')
 const Restaurants = require('../restaurants')
 // import default restaurant json
 const defaultRestaurant = require('../restaurant.json')
-console.log(defaultRestaurant)
+
 
 
 db.once('open', () => {

@@ -1,5 +1,5 @@
 <div class="form__container">
-  <form action="/restaurants/{{restaurant._id}}?_method=PUT"" method="post">
+  <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="post">
     <div class="form__left">
       <div class="form-group">
         <label for="name">Name</label>
@@ -12,11 +12,10 @@
       <div class="form-group">
         <label for="category">Category</label>
         <div class="input-wrapper">
-          <input list="category" name="category" class="form-control">
+          <input list="category" name="category" class="form-control" value="{{restaurant.category}}">
         </div>
         <datalist id="category">
-          <option value="" disabled>請選擇</option>
-          <option {{#if restaurant.category}} selected {{/if}}>中東料理</option>
+          <option>中東料理</option>
           <option>日本料理</option>
           <option>義式餐廳</option>
           <option>美式餐廳</option>
